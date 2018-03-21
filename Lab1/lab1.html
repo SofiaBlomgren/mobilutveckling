@@ -47,6 +47,14 @@
           position: {lat: 59.332526, lng: 18.064490}
         });
         marker.addListener('click', toggleBounce);
+
+        window.addEventListener("load",function() {
+        // Set a timeout...
+        setTimeout(function(){
+          // Hide the address bar!
+          window.scrollTo(0, 1);
+        }, 0);
+});
       }
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?callback=initMap"
