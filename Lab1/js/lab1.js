@@ -7,4 +7,4 @@ window.addEventListener("load",function() {
 	}, 0);
 });
 
-<script src="js/lab1.js"></script>
+//<script src="js/lab1.js"></script>//
