@@ -45,6 +45,8 @@
           //tilt: 45
         });
 
+      infoWindow = new google.maps.InfoWindow; 
+
       if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(function(position) {
             var pos = {
@@ -73,14 +75,13 @@
         infoWindow.open(map);
       }
 
-        marker = new google.maps.Marker({
+        /*-marker = new google.maps.Marker({
           map: map,
           draggable: true,
           animation: google.maps.Animation.DROP,
           position: {lat: 59.332526, lng: 18.064490}
         });
-        marker.addListener('click', toggleBounce);
-      }
+        marker.addListener('click', toggleBounce);*/
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?callback=initMap"
     async defer></script>
