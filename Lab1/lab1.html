@@ -39,8 +39,7 @@
               lat: position.coords.latitude,
               lng: position.coords.longitude
             };*/
-      /*var hanna = {lat: 59.292432, lng: 17.994962};
-      var sofia = {lat: 59.312572, lng: 18.073858};*/
+    
 
       function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
@@ -56,6 +55,24 @@
           fullscreenControl: true
           //tilt: 45
         });
+
+      function hannaFunction() {
+
+        var hanna = {lat: 59.292432, lng: 17.994962};
+
+        google.maps.event.addDomListener(outer, 'click', function() {
+          map.setCenter(hanna)
+          });
+        };
+
+      function sofiaFunction() {
+
+        var sofia = {lat: 59.312572, lng: 18.073858};
+
+        google.maps.event.addDomListener(outer, 'click', function() {
+          map.setCenter(sofia)
+          });
+        };
 
 
       /*function hannaFunction() {
