@@ -41,7 +41,6 @@
             };*/
     
 
-
       //Map
       function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
@@ -77,7 +76,7 @@
         var image = 'HS_marker.png';
 
 
-        //infoWindow = new google.maps.InfoWindow;
+        infoWindow = new google.maps.InfoWindow;
 
         var hannaInfoWindow = new google.maps.InfoWindow({
           content: "Hanna lives here! :)"
@@ -112,7 +111,6 @@
         sofiaMarker.addListener('click', function() {
           sofiaInfoWindow.open(map, sofiaMarker);
         });
-
 
       if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(function(position) {
@@ -156,6 +154,8 @@
 
       function geoFunction() {
 
+        infoWindow = new google.maps.InfoWindow;
+        console.log("hej")
         if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(function(position) {
             var pos = {
