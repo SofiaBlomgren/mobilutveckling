@@ -76,22 +76,42 @@
         //Custom markers
         var image = 'HS_marker.png';
 
+
+        var infoWindow = new google.maps.InfoWindow;
+
+        var hannaInfoWindow = new google.maps.InfoWindow({
+          content: "Hanna lives here! :)"
+        });
+
+        var sofiaInfoWindow = new google.maps.InfoWindow({
+          content: "Sofia lives here! :)"
+        });
+
+
         var hannaMarker = new google.maps.Marker({
           position: {lat: 59.292432, lng: 17.994962},
           animation: google.maps.Animation.DROP,
           map: map,
-          icon: image
+          icon: image,
+          title: 'Hanna lives here! :)'
         });
 
         var sofiaMarker = new google.maps.Marker({
           position: {lat: 59.312572, lng: 18.073858},
           animation: google.maps.Animation.DROP,
           map: map,
-          icon: image
+          icon: image,
+          title: 'Sofia lives here! :)'
+        });
+
+        hannaMarker.addListener('click', function() {
+          hannaInfoWindow.open(map, hannaMarker);
         });
 
 
-      infoWindow = new google.maps.InfoWindow; 
+        sofiaMarker.addListener('click', function() {
+          sofiaInfoWindow.open(map, sofiaMarker);
+        });
 
 
       if (navigator.geolocation) {
@@ -112,7 +132,6 @@
           // Browser doesn't support Geolocation
           handleLocationError(false, infoWindow, map.getCenter());
         }
-      }
 
       function handleLocationError(browserHasGeolocation, infoWindow, pos) {
         infoWindow.setPosition(pos);
@@ -120,12 +139,12 @@
                               'Error: The Geolocation service failed.' :
                               'Error: Your browser doesn\'t support geolocation.');
         infoWindow.open(map);
-      }
+      }}
 
 
 
 
-      var hannaFunction = function() {
+      function hannaFunction() {
         var hanna = {lat: 59.292432, lng: 17.994962};
           map.setCenter(hanna)
         };
