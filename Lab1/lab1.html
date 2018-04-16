@@ -49,29 +49,43 @@
           zoom: 18,
           mapTypeId: 'roadmap',
           disableDefaultUI: true,
-          zoomControl: true,
-          mapTypeControl: true,
-          scaleControl: true,
-          streetViewControl: true,
-          rotateControl: true,
-          fullscreenControl: true
+          //zoomControl: true,
+          //mapTypeControl: true,
+          //scaleControl: true,
+          //streetViewControl: true,
+          //rotateControl: true,
+          //fullscreenControl: true
           //tilt: 45
         });
 
+        //Custom controllers
+        var zoomInControlDiv = document.createElement('div');
+        var zoomInControl = new ZoomInControl(zoomInControlDiv, map);
 
+        zoomInControlDiv.index = 1;
+        map.controls[google.maps.ControlPosition.TOP_LEFT].push(zoomInControlDiv);
+
+
+        var zoomOutControlDiv = document.createElement('div');
+        var zoomOutControl = new ZoomOutControl(zoomOutControlDiv, map);
+
+        zoomOutControlDiv.index = 2;
+        map.controls[google.maps.ControlPosition.LEFT_TOP].push(zoomOutControlDiv);
 
 
         //Custom markers
-        var image = 'marker.png';
+        var image = 'HS_marker.png';
 
         var hannaMarker = new google.maps.Marker({
           position: {lat: 59.292432, lng: 17.994962},
+          animation: google.maps.Animation.DROP,
           map: map,
           icon: image
         });
 
         var sofiaMarker = new google.maps.Marker({
           position: {lat: 59.312572, lng: 18.073858},
+          animation: google.maps.Animation.DROP,
           map: map,
           icon: image
         });
@@ -151,6 +165,67 @@
         }
       };
         
+
+      function ZoomInControl(zoomInControlDiv, map) {
+
+        // Set CSS for the control border.
+        var zoomInUI = document.createElement('div');
+          zoomInUI.style.backgroundColor = '#fff';
+          zoomInUI.style.border = '2px solid #fff';
+          zoomInUI.style.borderRadius = '3px';
+          zoomInUI.style.boxShadow = '0 2px 6px rgba(0,0,0,.3)';
+          zoomInUI.style.cursor = 'pointer';
+          zoomInUI.style.marginBottom = '22px';
+          zoomInUI.style.textAlign = 'center';
+          zoomInUI.title = 'Click to zoom in';
+          zoomInControlDiv.appendChild(zoomInUI);
+
+        // Set CSS for the control interior.
+        var zoomInText = document.createElement('div');
+          zoomInText.style.color = 'rgb(25,25,25)';
+          zoomInText.style.fontFamily = 'Roboto,Arial,sans-serif';
+          zoomInText.style.fontSize = '12px';
+          zoomInText.style.lineHeight = '38px';
+          zoomInText.style.paddingLeft = '5px';
+          zoomInText.style.paddingRight = '5px';
+          zoomInText.innerHTML = 'Zoom In';
+          zoomInUI.appendChild(zoomInText);
+
+
+        // Setup the click event listeners: simply set the map to Chicago.
+        google.maps.event.addDomListener(zoomInUI, 'click', function() {
+          map.setZoom(map.getZoom() + 1);
+        });
+      }
+
+      function ZoomOutControl(zoomOutControlDiv, map) {
+
+        var zoomOutUI = document.createElement('div');
+          zoomOutUI.style.backgroundColor = '#fff';
+          zoomOutUI.style.border = '2px solid #fff';
+          zoomOutUI.style.borderRadius = '3px';
+          zoomOutUI.style.boxShadow = '0 2px 6px rgba(0,0,0,.3)';
+          zoomOutUI.style.cursor = 'pointer';
+          zoomOutUI.style.marginBottom = '22px';
+          zoomOutUI.style.textAlign = 'center';
+          zoomOutUI.title = 'Click to zoom out';
+          zoomOutControlDiv.appendChild(zoomOutUI);
+
+        // Set CSS for the control interior.
+        var zoomOutText = document.createElement('div');
+          zoomOutText.style.color = 'rgb(25,25,25)';
+          zoomOutText.style.fontFamily = 'Roboto,Arial,sans-serif';
+          zoomOutText.style.fontSize = '12px';
+          zoomOutText.style.lineHeight = '38px';
+          zoomOutText.style.paddingLeft = '5px';
+          zoomOutText.style.paddingRight = '5px';
+          zoomOutText.innerHTML = 'Zoom Out';
+          zoomOutUI.appendChild(zoomOutText);
+
+        google.maps.event.addDomListener(zoomOutUI, 'click', function() {
+          map.setZoom(map.getZoom() - 1);
+        });
+      }
 
 
         /*-marker = new google.maps.Marker({
