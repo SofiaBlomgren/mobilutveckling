@@ -48,7 +48,7 @@
           zoom: 18,
           mapTypeId: 'roadmap',
           disableDefaultUI: true,
-          //zoomControl: true,
+          zoomControl: true,
           //mapTypeControl: true,
           //scaleControl: true,
           //streetViewControl: true,
@@ -65,11 +65,45 @@
         map.controls[google.maps.ControlPosition.TOP_LEFT].push(zoomInControlDiv);
 
 
+
         var zoomOutControlDiv = document.createElement('div');
         var zoomOutControl = new ZoomOutControl(zoomOutControlDiv, map);
 
         zoomOutControlDiv.index = 2;
         map.controls[google.maps.ControlPosition.LEFT_TOP].push(zoomOutControlDiv);
+
+
+
+        var upControlDiv = document.createElement('div');
+        var upControl = new UpControl(upControlDiv, map);
+
+        upControlDiv.index = 3;
+        map.controls[google.maps.ControlPosition.LEFT_TOP].push(upControlDiv);
+
+
+
+        var downControlDiv = document.createElement('div');
+        var downControl = new DownControl(downControlDiv, map);
+
+        downControlDiv.index = 4;
+        map.controls[google.maps.ControlPosition.LEFT_TOP].push(downControlDiv);
+
+
+
+        var leftControlDiv = document.createElement('div');
+        var leftControl = new LeftControl(leftControlDiv, map);
+
+        leftControlDiv.index = 5;
+        map.controls[google.maps.ControlPosition.LEFT_TOP].push(leftControlDiv);
+
+
+
+        var rightControlDiv = document.createElement('div');
+        var rightControl = new RightControl(rightControlDiv, map);
+
+        rightControlDiv.index = 6;
+        map.controls[google.maps.ControlPosition.LEFT_TOP].push(rightControlDiv);
+
 
 
         //Custom markers
@@ -245,7 +279,42 @@
         google.maps.event.addDomListener(zoomOutUI, 'click', function() {
           map.setZoom(map.getZoom() - 1);
         });
+      }      
+
+
+
+      function UpControl(upControlDiv, map) {
+
+        var upUI = document.createElement('div');
+          upUI.style.backgroundColor = '#fff';
+          upUI.style.border = '2px solid #fff';
+          upUI.style.borderRadius = '3px';
+          upUI.style.boxShadow = '0 2px 6px rgba(0,0,0,.3)';
+          upUI.style.cursor = 'pointer';
+          upUI.style.marginBottom = '22px';
+          upUI.style.textAlign = 'center';
+          upUI.title = 'Click to pan up';
+          upControlDiv.appendChild(upUI);
+
+        // Set CSS for the control interior.
+        var upText = document.createElement('div');
+          upText.style.color = 'rgb(25,25,25)';
+          upText.style.fontFamily = 'Roboto,Arial,sans-serif';
+          upText.style.fontSize = '12px';
+          upText.style.lineHeight = '38px';
+          upText.style.paddingLeft = '5px';
+          upText.style.paddingRight = '5px';
+          upText.innerHTML = 'Up';
+          upUI.appendChild(upText);
+
+        google.maps.event.addDomListener(upUI, 'click', function() {
+          map.panBy(0,-50);
+        });
       }
+
+
+
+
 
 
         /*-marker = new google.maps.Marker({

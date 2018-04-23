@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, user-scalable=yes,
+		initial-scale=1.0" />
+
+	<title>Relaxation iBeacons</title>
+
+	<style>
+	@import 'page.css';
+	</style>
+
+	<script>
+	// Redirect console if running from Evothings Workbench.
+	if (window.hyper) { console.log = hyper.log }
+	</script>
+</head>
+
+<body>
+	<div class="my-page" id="page-default">
+		<div class="my-header">
+			<img class="my-header-image" src="photos/HB-default.jpg" />
+			<img class="my-icon-back" src="icon-back.png" ontouchend="history.back()" />
+		</div>
+		<div class="my-content">
+			<h1 align='center'>Hanna and Sofia's</h1>
+			<h1 align='center'>Pub Crawl</h1>
+			<p align='center'>Please go to a participating bar! 🍸</p>
+		</div>
+	</div>
+
+	<div class="my-page" id="page-hanna">
+		<div class="my-header">
+			<img class="my-header-image" src="photos/pineapple.png" />
+			<img class="my-icon-back" src="icon-back.png" ontouchend="history.back()" />
+		</div>
+		<div class="my-content">
+			<h1 align='center'>Hanna's Bar</h1>
+			<p align='center'>Hi, welcome to Hanna's Bar.</p>
+
+			<h2>P2</h2>
+			<p>54kr</p>
+			<ul>
+				<li>Vaniljvodka</li>
+				<li>Sourz Sour Apple</li>
+				<li>Sprite</li>
+				<li>Lime</li>
+			</ul>
+			<h2>Pina Colada</h2>
+			<p>68kr</p>
+			<ul>
+				<li>Rum</li>
+				<li>Coconut milk</li>
+				<li>Pineapple juice</li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="my-page" id="page-sofia">
+		<div class="my-header">
+			<img class="my-header-image" src="photos/flower.jpg" />
+			<img class="my-icon-back" src="icon-back.png" ontouchend="history.back()" />
+		</div>
+		<div class="my-content">
+			<h1 align='center'>Sofia's Bar</h1>
+			<p align='center'>Hi, welcome to Sofia's Bar.</p>
+
+
+			<h2>Caipirina</h2>
+			<p>68kr</p>
+			<ul>
+				<li>Rum</li>
+				<li>Sugar</li>
+				<li>Lime</li>
+			</ul>
+			<h2>Whiskey Sour</h2>
+			<p>62kr</p>
+			<ul>
+				<li>Bourbon</li>
+				<li>Lemon juice</li>
+				<li>Simple syrup</li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="my-page" id="page-face">
+		<div class="my-header">
+			<img class="my-header-image" src="photos/photo-face.jpg" />
+			<img class="my-icon-back" src="icon-back.png" ontouchend="history.back()" />
+		</div>
+		<div class="my-content">
+			<h1>Feel Your Face</h1>
+			<ul>
+				<li>Become aware of your face.</li>
+				<li>Feel the forehead.</li>
+				<li>The eyebrows.</li>
+				<li>Eyes.</li>
+				<li>Nose.</li>
+				<li>Nostrils.</li>
+				<li>Air flowing through the nostrils.</li>
+				<li>Cheeks.</li>
+				<li>Jaw.</li>
+				<li>Lips.</li>
+				<li>Tongue.</li>
+				<li>Whole of the head.</li>
+				<li>The space surrounding the head.</li>
+			</ul>
+		</div>
+	</div>
+
+	<script src="lib/jquery.js"></script>
+	<script src="cordova.js"></script>
+	<script src="app.js"></script>
+</body>
+</html>
