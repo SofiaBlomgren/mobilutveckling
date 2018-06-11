@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
+  <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
+  <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
+  <script>
+  //ons.platform.select('android')
+  ons.platform.select('ios')
+  </script>
+  <script src="jquery-3.3.1.js"></script>
+</head>
+<body>
+    <ons-navigator class="appNavigator" page="index.html"></ons-navigator>
+        <ons-template id="index.html">
+            <ons-page id="index">
+                
+                <ons-toolbar>
+                    <div class="center"><b>Hanna and Sofia's drinks</b></div>
+                </ons-toolbar>
+                
+                <ons-tabbar swipeable position="auto">
+                    <ons-tab page="about.html" label="About" icon="ion-home, material:md-home" active>
+                    </ons-tab>
+                    <ons-tab page="caipirinha.html" label="Caipirinha" icon="md-local-bar">
+                    </ons-tab>
+                    <ons-tab page="pinacolada.html" label="Pina Colada" icon="md-local-bar">
+                    </ons-tab>
+                    <ons-tab page="whiskeysour.html" label="Whikey Sour" icon="md-local-bar">
+                    </ons-tab>
+                </ons-tabbar>
+
+            </ons-page>
+        </ons-template>
+    
+        <ons-template id="caipirinha.html">
+            <ons-page id="caipirinha">
+                <ons-toolbar>
+                  <div class="center">Caipirinha</div>
+                </ons-toolbar>
+                <div class="page-content" style="padding-left: 20px; padding-right: 20px;">
+                    <p style="text-align: center;"><img src="images/caipirinha.jpg" style=" center-align; width: 80%;"/></p>
+                    <b>Ingredients</b>
+                    <ul>
+                        <li>4 cl Rum</li>
+                        <li>1/2 tsp Sugar</li>
+                        <li>1/2 Lime</li>
+                    </ul>
+                    <b>Preparation</b>
+                    <p style="padding-left: 20px; padding-right: 20px;">
+                    Slice the lime into 1/2-inch rounds, cube them, and muddle them in an Old-Fashioned glass or small tumbler with the sugar. Add a couple of ice cubes. Pour in the rum.
+                    </p>
+                </div>
+          </ons-page>
+        </ons-template>
+    
+        <ons-template id="pinacolada.html">
+            <ons-page id="pinacolada">
+                <ons-toolbar>
+                  <div class="center">Pina Colada</div>
+                </ons-toolbar>
+                    <div class="page-content" style="padding-left: 20px; padding-right: 20px;">
+                        <p style="text-align: center;"><img src="images/pinacolada.jpg" style=" center-align; width: 80%;"/></p>
+                        <b>Ingredients</b>
+                        <ul>
+                            <li>4 cl Rum</li>
+                            <li>1 dl Coconut milk</li>
+                            <li>1 dl Pineapple juice</li>
+                        </ul>
+                        <b>Preparation</b>
+                        <p style="padding-left: 20px; padding-right: 20px;">
+                        Mix with crushed ice until smooth. Pour into chilled glass, garnish and serve.
+                        </p>
+                    </div>
+          </ons-page>
+        </ons-template>
+    
+        <ons-template id="whiskeysour.html">
+            <ons-page id="whiskeysour">
+                <ons-toolbar>
+                  <div class="center">Whiskey Sour</div>
+                </ons-toolbar>
+                    <div class="page-content" style="padding-left: 20px; padding-right: 20px;">
+                        <p style="text-align: center;"><img src="images/whiskeysour.jpg" style=" center-align; width: 80%;"/></p>
+                        <b>Ingredients</b>
+                        <ul>
+                            <li>4 cl Bourbon</li>
+                            <li>2 cl Lemon juice</li>
+                            <li>2 cl Simple syrup</li>
+                        </ul>
+                        <b>Preparation</b>
+                        <p style="padding-left: 20px; padding-right: 20px;">
+                        Shake with ice. Strain into ice-filled old-fashioned glass to serve "on the rocks".
+                        </p>
+                    </div>
+            </ons-page>
+        </ons-template>
+    
+        <ons-template id="about.html">
+            <ons-page id="about">
+                <ons-toolbar>
+                  <div class="center">About</div>
+                </ons-toolbar>
+                    <div class="page-content" style="padding-left: 20px; padding-right: 20px;">
+                        <p style="text-align: center;"><img src="images/hannaochsofia.png" style=" center-align; width: 80%;"/></p>
+                        <b>Who are we?</b>
+                        <p style="padding-left: 20px; padding-right: 20px;">
+                        Two girls who somehow always manage to make school projects about drink recipes. But we mean, who doesn't like drinks?
+                        </p>
+                    </div>
+            </ons-page>
+        </ons-template> 
+    
+    <script>
+    function showPage(page) {
+      // jQuery returns an array of DOM objects, we want the first DOM object
+      // which is the have that has the pushPage function.
+      $('.appNavigator')[0].pushPage(page)
+    }
+    </script>
+    <!--<script>
+    window.fn = {};
+
+    window.fn.pushPage = function (page, anim) {
+      if (anim) {
+        document.getElementById('appNavigator').pushPage(page.id, { data: { title: page.title }, animation: anim });
+      } else {
+        document.getElementById('appNavigator').pushPage(page.id, { data: { title: page.title } });
+      }
+    };
+    </script>-->
+</body>
+</html>
